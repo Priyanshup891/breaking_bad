@@ -28,7 +28,11 @@ const Search = styled(InputBase)(() => ({
     width:"350px"
 }))
 
-const Header = () => {
+const Header = ({setText}) => {
+
+    const getText = (e) => {
+        setText(e.target.value);
+    }
 
   return (
     <StyledHeader position='fixed'>
@@ -38,7 +42,7 @@ const Header = () => {
                 <SearchBar>
                     <SearchIcon/>
                 <Search 
-                placeholder='Search Character'/>
+                placeholder='Search Character' onChange={(e) => getText(e)}/>
                 </SearchBar>
             </Toolbar>
         </Container>
